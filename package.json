@@ -30,20 +30,20 @@
     "native"
   ],
   "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "verify": "yarn run verify:ios && yarn run verify:android && yarn run verify:web",
     "verify:ios": "xcodebuild -scheme ReleasebirdCapacitorSdk -destination generic/platform=iOS",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
-    "verify:web": "npm run build",
-    "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
-    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
+    "verify:web": "yarn run build",
+    "lint": "yarn run eslint && yarn run prettier -- --check && yarn run swiftlint -- lint",
+    "fmt": "yarn run eslint -- --fix && yarn run prettier -- --write && yarn run swiftlint -- --fix --format",
     "eslint": "eslint . --ext ts",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
     "swiftlint": "node-swiftlint",
     "docgen": "docgen --api ReleasebirdPlugin --output-readme README.md --output-json dist/docs.json",
-    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
+    "build": "yarn run clean && yarn run docgen && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "yarn run build"
   },
   "devDependencies": {
     "@capacitor/android": "^6.0.0",
@@ -63,6 +63,9 @@
   },
   "peerDependencies": {
     "@capacitor/core": "^6.0.0"
+  },
+  "dependencies": {
+    "releasebird-javascript-sdk": "^1.0.8"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",

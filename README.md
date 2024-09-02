@@ -14,6 +14,8 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`initialize(...)`](#initialize)
+* [`identify(...)`](#identify)
 
 </docgen-index>
 
@@ -31,6 +33,33 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 | **`options`** | <code>{ value: string; }</code> |
 
 **Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### initialize(...)
+
+```typescript
+initialize(apiKey: string) => Promise<void>
+```
+
+| Param        | Type                |
+| ------------ | ------------------- |
+| **`apiKey`** | <code>string</code> |
+
+--------------------
+
+
+### identify(...)
+
+```typescript
+identify(identify: any, hash: string) => Promise<void>
+```
+
+| Param          | Type                |
+| -------------- | ------------------- |
+| **`identify`** | <code>any</code>    |
+| **`hash`**     | <code>string</code> |
 
 --------------------
 

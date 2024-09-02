@@ -1,5 +1,6 @@
 import { SplashScreen } from '@capacitor/splash-screen';
 import { Camera } from '@capacitor/camera';
+import {Releasebird} from "releasebird-capacitor-sdk";
 
 window.customElements.define(
   'capacitor-welcome',
@@ -57,11 +58,11 @@ window.customElements.define(
     </style>
     <div>
       <capacitor-welcome-titlebar>
-        <h1>Capacitor</h1>
+        <h1>Capacitor Releleasebird Test</h1>
       </capacitor-welcome-titlebar>
       <main>
         <p>
-          Capacitor makes it easy to build powerful apps for the app stores, mobile web (Progressive Web Apps), and desktop, all
+          Capacitor 2 makes it easy to build powerful apps for the app stores, mobile web (Progressive Web Apps), and desktop, all
           with a single code base.
         </p>
         <h2>Getting Started</h2>
@@ -111,6 +112,8 @@ window.customElements.define(
     }
   },
 );
+
+Releasebird.initialize("1cad2c1b6d7842fd937469ce3ac42ba2");
 
 window.customElements.define(
   'capacitor-welcome-titlebar',
