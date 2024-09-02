@@ -5,7 +5,7 @@ Releasebird SDK for Capacitor
 ## Install
 
 ```bash
-npm install releasebird-capacitor-sdk
+yarn install releasebird-capacitor-sdk
 npx cap sync
 ```
 
