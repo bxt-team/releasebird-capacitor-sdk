@@ -1,6 +1,6 @@
 import Foundation
 import Capacitor
-
+import releasebird_ios_sdk
 /**
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitorjs.com/docs/plugins/ios
@@ -20,4 +20,6 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
             "value": implementation.echo(value)
         ])
     }
+
+
 }

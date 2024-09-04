@@ -1,6 +1,6 @@
 {
   "name": "releasebird-capacitor-sdk",
-  "version": "0.0.1",
+  "version": "1.0",
   "description": "Releasebird SDK for Capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bxt-team/releasebird-capacitor-sdk.git"
+    "url": "https://github.com/bxt-team/releasebird-capacitor-sdk.git"
   },
   "bugs": {
     "url": "https://github.com/bxt-team/releasebird-capacitor-sdk/issues"
