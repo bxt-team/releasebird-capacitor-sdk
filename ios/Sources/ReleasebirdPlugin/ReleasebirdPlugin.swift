@@ -1,6 +1,6 @@
 import Foundation
 import Capacitor
-import releasebird_ios_sdk
+import Releasebird
 /**
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitorjs.com/docs/plugins/ios
