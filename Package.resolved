@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "capacitor-swift-pm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ionic-team/capacitor-swift-pm.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "272e5dcd26260c6f3798b024c9cb3ffa52850ec7"
+      }
+    },
+    {
+      "identity" : "releasebird-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bxt-team/releasebird-ios-sdk.git",
+      "state" : {
+        "revision" : "1cd108fdeb96a1a1e2963337f50a46293a0f8913",
+        "version" : "1.0.7"
+      }
+    }
+  ],
+  "version" : 2
+}
