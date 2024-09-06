@@ -9,4 +9,4 @@ include ':capacitor-splash-screen'
 project(':capacitor-splash-screen').projectDir = new File('../node_modules/@capacitor/splash-screen/android')
 
 include ':releasebird-capacitor-sdk'
-project(':releasebird-capacitor-sdk').projectDir = new File('../node_modules/releasebird-capacitor-sdk/android')
+project(':releasebird-capacitor-sdk').projectDir = new File('../../android')

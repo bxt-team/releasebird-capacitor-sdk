@@ -40,12 +40,12 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 ### initialize(...)
 
 ```typescript
-initialize(apiKey: string) => Promise<void>
+initialize(options: { apiKey: string; }) => Promise<void>
 ```
 
-| Param        | Type                |
-| ------------ | ------------------- |
-| **`apiKey`** | <code>string</code> |
+| Param         | Type                             |
+| ------------- | -------------------------------- |
+| **`options`** | <code>{ apiKey: string; }</code> |
 
 --------------------
 

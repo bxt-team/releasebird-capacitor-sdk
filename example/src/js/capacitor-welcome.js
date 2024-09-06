@@ -113,7 +113,7 @@ window.customElements.define(
   },
 );
 
-Releasebird.initialize("1cad2c1b6d7842fd937469ce3ac42ba2");
+Releasebird.initialize({apiKey: "1cad2c1b6d7842fd937469ce3ac42ba2"});
 
 window.customElements.define(
   'capacitor-welcome-titlebar',

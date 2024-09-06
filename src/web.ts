@@ -9,8 +9,8 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
     return options;
   }
 
-  async initialize(apiKey: string): Promise<void> {
-    Rbird.initialize(apiKey);
+  async initialize(options: { apiKey: string } ): Promise<void> {
+    Rbird.initialize(options.apiKey);
   }
 
   async identify(identify: any, hash: string): Promise<void> {
