@@ -1,18 +1,18 @@
 import { SplashScreen } from '@capacitor/splash-screen';
 import { Camera } from '@capacitor/camera';
-import {Releasebird} from "releasebird-capacitor-sdk";
+import { Releasebird } from "releasebird-capacitor-sdk";
 
 window.customElements.define(
-  'capacitor-welcome',
-  class extends HTMLElement {
-    constructor() {
-      super();
+    'capacitor-welcome',
+    class extends HTMLElement {
+        constructor() {
+            super();
 
-      SplashScreen.hide();
+            SplashScreen.hide();
 
-      const root = this.attachShadow({ mode: 'open' });
+            const root = this.attachShadow({ mode: 'open' });
 
-      root.innerHTML = `
+            root.innerHTML = `
     <style>
       :host {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -80,7 +80,7 @@ window.customElements.define(
           This demo shows how to call Capacitor plugins. Say cheese!
         </p>
         <p>
-          <button class="button" id="take-photo">Take Photo</button>
+          <button class="button" id="take-photo">Show Widget</button>
         </p>
         <p>
           <img id="image" style="max-width: 100%">
@@ -88,40 +88,28 @@ window.customElements.define(
       </main>
     </div>
     `;
-    }
-
-    connectedCallback() {
-      const self = this;
-
-      self.shadowRoot.querySelector('#take-photo').addEventListener('click', async function (e) {
-        try {
-          const photo = await Camera.getPhoto({
-            resultType: 'uri',
-          });
-
-          const image = self.shadowRoot.querySelector('#image');
-          if (!image) {
-            return;
-          }
-
-          image.src = photo.webPath;
-        } catch (e) {
-          console.warn('User cancelled', e);
         }
-      });
-    }
-  },
+
+        connectedCallback() {
+            const self = this;
+
+            self.shadowRoot.querySelector('#take-photo').addEventListener('click', async function (e) {
+                Releasebird.echo({value: 'HALLOO'});
+                Releasebird.showWidget();
+            });
+        }
+    },
 );
 
-Releasebird.initialize({apiKey: "1cad2c1b6d7842fd937469ce3ac42ba2"});
+Releasebird.initialize({ apiKey: "1cad2c1b6d7842fd937469ce3ac42ba2" });
 
 window.customElements.define(
-  'capacitor-welcome-titlebar',
-  class extends HTMLElement {
-    constructor() {
-      super();
-      const root = this.attachShadow({ mode: 'open' });
-      root.innerHTML = `
+    'capacitor-welcome-titlebar',
+    class extends HTMLElement {
+        constructor() {
+            super();
+            const root = this.attachShadow({ mode: 'open' });
+            root.innerHTML = `
     <style>
       :host {
         position: relative;
@@ -140,6 +128,6 @@ window.customElements.define(
     </style>
     <slot></slot>
     `;
-    }
-  },
+        }
+    },
 );

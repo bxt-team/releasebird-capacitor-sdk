@@ -10,7 +10,8 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
     public let jsName = "Releasebird"
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "initialize", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "initialize", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "showWidget", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = ReleasebirdCapacitor()
 
@@ -22,13 +23,53 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
     }
     
     @objc func initialize(_ call: CAPPluginCall) {
+    DispatchQueue.global(qos: .userInitiated).async {
+     DispatchQueue.main.async { [self] in
         let apiKey = call.getString("apiKey") ?? ""
-        print(call)
-        //let showButton = call.getBool("showButton") ?? true
-        call.resolve([
-            "value": implementation.initialize(apiKey)
-        ])
+        let showButton = call.getBool("showButton") ?? true
+        implementation.initialize(apiKey, showButton: showButton);
+        }
+        }
+        call.resolve();
     }
+    
+    @objc func showWidget(_ call: CAPPluginCall) {
+    DispatchQueue.global(qos: .userInitiated).async {
+     DispatchQueue.main.async { [self] in
+        implementation.showWidget()
+        }
 
+    }
+    call.resolve()
+    }
+    
+    func convertJSObjectToNSDictionary(jsObject: JSObject?) -> NSDictionary? {
+        guard let jsObject = jsObject else {
+            return nil
+        }
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsObject, options: [])
+            let dictionary = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? NSDictionary
+            return dictionary
+        } catch {
+            print("Error converting JSObject: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    @objc func identify(_ call: CAPPluginCall) {
+        guard let identifyJson = call.getObject("identifyJson") else {
+            print("identifyJson is nil")
+            call.reject("identifyJson is missing")
+            return
+        }
+        guard let dictionary = convertJSObjectToNSDictionary(jsObject: identifyJson) else {
+            print("Fehler beim Konvertieren des JSObject")
+            call.reject("Failed to convert JSObject to NSDictionary")
+            return
+        }
+        implementation.identify(dictionary)
+        call.resolve()
+    }
 
 }

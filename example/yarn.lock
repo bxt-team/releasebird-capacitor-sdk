@@ -611,7 +611,7 @@ readable-stream@3:
   version "1.0"
   resolved "file:.."
   dependencies:
-    releasebird-javascript-sdk "^1.0.8"
+    releasebird-javascript-sdk "^1.0.12"
 
 rimraf@^4.4.1:
   version "4.4.1"

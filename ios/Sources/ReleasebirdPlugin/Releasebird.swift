@@ -7,13 +7,17 @@ import Releasebird
         return value
     }
     
-    @objc public func initialize(_ apiKey: String) -> Void {
-            print("Hello INIT");
-            print("ApiKey:");
-            print(apiKey);
+    @objc public func initialize(_ apiKey: String, showButton: Bool) -> Void {
            //var showButtonValue: ObjCBool = ObjCBool(showButton)
-           var showButtonValue: ObjCBool = ObjCBool(true)
-           // Übergabe des Zeigers auf den veränderbaren Wert
+           var showButtonValue: ObjCBool = ObjCBool(showButton)
            Releasebird.sharedInstance().initialize(apiKey, showButton: &showButtonValue)
+    }
+    
+    @objc public func showWidget() {
+        Releasebird.sharedInstance().showWidget();
+    }
+    
+    @objc public func identify(_ identifyJson: NSDictionary) -> Void {
+        Releasebird.sharedInstance().identify(identifyJson);
     }
 }

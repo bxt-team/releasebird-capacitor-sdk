@@ -15,7 +15,10 @@ npx cap sync
 
 * [`echo(...)`](#echo)
 * [`initialize(...)`](#initialize)
+* [`initialize(...)`](#initialize)
+* [`showButton(...)`](#showbutton)
 * [`identify(...)`](#identify)
+* [`showWidget(...)`](#showwidget)
 
 </docgen-index>
 
@@ -50,16 +53,54 @@ initialize(options: { apiKey: string; }) => Promise<void>
 --------------------
 
 
+### initialize(...)
+
+```typescript
+initialize(options: { apiKey: string; showButton: boolean; }) => Promise<void>
+```
+
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code>{ apiKey: string; showButton: boolean; }</code> |
+
+--------------------
+
+
+### showButton(...)
+
+```typescript
+showButton(options: { showButton: boolean; }) => Promise<void>
+```
+
+| Param         | Type                                  |
+| ------------- | ------------------------------------- |
+| **`options`** | <code>{ showButton: boolean; }</code> |
+
+--------------------
+
+
 ### identify(...)
 
 ```typescript
-identify(identify: any, hash: string) => Promise<void>
+identify(options: { identify: any; hash: string; }) => Promise<void>
 ```
 
-| Param          | Type                |
-| -------------- | ------------------- |
-| **`identify`** | <code>any</code>    |
-| **`hash`**     | <code>string</code> |
+| Param         | Type                                          |
+| ------------- | --------------------------------------------- |
+| **`options`** | <code>{ identify: any; hash: string; }</code> |
+
+--------------------
+
+
+### showWidget(...)
+
+```typescript
+showWidget(options: {}) => Promise<void>
+```
+
+| Param         | Type            |
+| ------------- | --------------- |
+| **`options`** | <code>{}</code> |
 
 --------------------
 
