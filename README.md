@@ -18,7 +18,7 @@ npx cap sync
 * [`initialize(...)`](#initialize)
 * [`showButton(...)`](#showbutton)
 * [`identify(...)`](#identify)
-* [`showWidget(...)`](#showwidget)
+* [`showWidget()`](#showwidget)
 
 </docgen-index>
 
@@ -92,15 +92,11 @@ identify(options: { identify: any; hash: string; }) => Promise<void>
 --------------------
 
 
-### showWidget(...)
+### showWidget()
 
 ```typescript
-showWidget(options: {}) => Promise<void>
+showWidget() => Promise<void>
 ```
-
-| Param         | Type            |
-| ------------- | --------------- |
-| **`options`** | <code>{}</code> |
 
 --------------------
 
