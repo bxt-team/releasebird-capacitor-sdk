@@ -65,7 +65,7 @@
     "@capacitor/core": "^6.0.0"
   },
   "dependencies": {
-    "releasebird-javascript-sdk": "^1.0.12"
+    "releasebird-javascript-sdk": "^1.0.15"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",

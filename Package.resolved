@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bxt-team/releasebird-ios-sdk.git",
       "state" : {
-        "revision" : "70fd754dbb201aeeef9520d0b88c0807d3810b0e",
-        "version" : "1.0.15"
+        "revision" : "4e2848a07915a5be0619137e2ff004b8c068011e",
+        "version" : "1.0.16"
       }
     }
   ],

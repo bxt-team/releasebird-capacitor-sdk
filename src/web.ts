@@ -19,7 +19,8 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
   }
 
   async initialize(options: { apiKey: string, showButton: boolean } ): Promise<void> {
-    if (options.showButton) {
+    console.log('ECHO', options.showButton);
+    if (options.showButton != null) {
       Rbird.initialize(options.apiKey, options.showButton);
     } else {
       Rbird.initialize(options.apiKey);

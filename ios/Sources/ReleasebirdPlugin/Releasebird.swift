@@ -8,9 +8,7 @@ import Releasebird
     }
     
     @objc public func initialize(_ apiKey: String, showButton: Bool) -> Void {
-           //var showButtonValue: ObjCBool = ObjCBool(showButton)
-           var showButtonValue: ObjCBool = ObjCBool(showButton)
-           Releasebird.sharedInstance().initialize(apiKey, showButton: &showButtonValue)
+           Releasebird.sharedInstance().initialize(apiKey, showButton: showButton)
     }
     
     @objc public func showWidget() {
