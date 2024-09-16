@@ -4,5 +4,5 @@ export interface ReleasebirdPlugin {
   initialize(options: { apiKey: string, showButton: boolean }): Promise<void>;
   showButton(options: { showButton: boolean }): Promise<void>;
   identify(options: {identify: any, hash: string}): Promise<void>;
-  showWidget(options: {}): Promise<void>;
+  showWidget(): Promise<void>;
 }
