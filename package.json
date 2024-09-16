@@ -1,6 +1,6 @@
 {
   "name": "releasebird-capacitor-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Releasebird SDK for Capacitor",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
