@@ -46,13 +46,10 @@ public class ReleasebirdPlugin extends Plugin {
 
     @PluginMethod
     public void identify(PluginCall call) {
-        Log.i("IDENTIFY", "bin in identify");
         try {
             String hash = call.getString("hash");
 
-            Log.i("HASH", hash);
             JSObject identifyJson = call.getObject("identify");
-            Log.i("JSONOBJ", identifyJson.toString());
 
             HashMap<String, Object> hashMap = new HashMap<>();
 
