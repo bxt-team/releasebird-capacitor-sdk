@@ -1,5 +1,7 @@
 package com.releasebird.capacitor;
 
+import android.util.Log;
+
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -7,6 +9,7 @@ import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -43,30 +46,42 @@ public class ReleasebirdPlugin extends Plugin {
 
     @PluginMethod
     public void identify(PluginCall call) {
-        String hash = call.getString("hash");
-        JSObject identifyJson = call.getObject("identifyJson");
+        Log.i("IDENTIFY", "bin in identify");
+        try {
+            String hash = call.getString("hash");
 
-        HashMap<String, Object> hashMap = new HashMap<>();
+            Log.i("HASH", hash);
+            JSObject identifyJson = call.getObject("identify");
+            Log.i("JSONOBJ", identifyJson.toString());
 
-        // Get the iterator from the keys
-        Iterator<String> keysIterator = identifyJson.keys();
+            HashMap<String, Object> hashMap = new HashMap<>();
 
-        // Convert Iterator to a Set to use foreach loop
-        Set<String> keysSet = new HashSet<>();
-        while (keysIterator.hasNext()) {
-            keysSet.add(keysIterator.next());
-        }
+            JSONObject properties = identifyJson.getJSONObject("properties");
 
-        // Iterate through the keys using foreach
-        for (String key : keysSet) {
-            try {
-                Object value = identifyJson.get(key);
-                hashMap.put(key, value);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            // Get the iterator from the keys
+            Iterator<String> keysIterator = properties.keys();
+
+            // Convert Iterator to a Set to use foreach loop
+            Set<String> keysSet = new HashSet<>();
+            while (keysIterator.hasNext()) {
+                keysSet.add(keysIterator.next());
             }
+
+            // Iterate through the keys using foreach
+            for (String key : keysSet) {
+                try {
+                    Object value = properties.get(key);
+                    hashMap.put(key, value);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            implementation.identify(hash, hashMap);
+            call.resolve();
+        } catch (JSONException e) {
+            call.reject("json problem");
         }
-        implementation.identify(hash, hashMap);
-        call.resolve();
+
+
     }
 }
