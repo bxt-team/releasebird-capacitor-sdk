@@ -115,7 +115,7 @@ const json = {
     }
 };
 
-Releasebird.identify({hash: null, identify: json.properties})
+Releasebird.identify({hash: null, identify: json})
 
 window.customElements.define(
     'capacitor-welcome-titlebar',

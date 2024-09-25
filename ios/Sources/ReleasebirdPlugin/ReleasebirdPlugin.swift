@@ -60,17 +60,13 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
     
     @objc func identify(_ call: CAPPluginCall) {
         guard let identifyJson = call.getObject("identify") else {
-            print("identify is nil")
             call.reject("identify is missing")
             return
         }
         guard let dictionary = convertJSObjectToNSDictionary(jsObject: identifyJson) else {
-            print("Fehler beim Konvertieren des JSObject")
             call.reject("Failed to convert JSObject to NSDictionary")
             return
         }
-         print("call identify with");
-         print(dictionary);
         implementation.identify(dictionary)
         call.resolve()
     }
