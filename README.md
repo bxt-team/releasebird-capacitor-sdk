@@ -82,12 +82,12 @@ showButton(options: { showButton: boolean; }) => Promise<void>
 ### identify(...)
 
 ```typescript
-identify(options: { identify: any; hash: string; }) => Promise<void>
+identify(options: { hash: string; identify: any; }) => Promise<void>
 ```
 
 | Param         | Type                                          |
 | ------------- | --------------------------------------------- |
-| **`options`** | <code>{ identify: any; hash: string; }</code> |
+| **`options`** | <code>{ hash: string; identify: any; }</code> |
 
 --------------------
 

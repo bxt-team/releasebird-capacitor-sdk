@@ -16,6 +16,8 @@ import Releasebird
     }
     
     @objc public func identify(_ identifyJson: NSDictionary) -> Void {
+        print("bin in identify");
+        print(identifyJson);
         Releasebird.sharedInstance().identify(identifyJson);
     }
 }

@@ -94,14 +94,28 @@ window.customElements.define(
             const self = this;
 
             self.shadowRoot.querySelector('#take-photo').addEventListener('click', async function (e) {
-                Releasebird.echo({value: 'HALLOO'});
                 Releasebird.showWidget();
             });
         }
     },
 );
 
-Releasebird.initialize({ apiKey: "1cad2c1b6d7842fd937469ce3ac42ba2", showButton: false });
+Releasebird.initialize({ apiKey: "1cad2c1b6d7842fd937469ce3ac42ba2", showButton: true });
+
+const json = {
+    properties: {
+        firstname: "Christian",
+        lastname: "Zillmann",
+        email: "christian.zillmann@buildnext.io",
+        external_user_id: "65686f74b7d0b27e904d2ba6",
+        company: {
+            externalId: "65686f74b7d0b27e904d2ba7",
+            company_name: "buildnext"
+        }
+    }
+};
+
+Releasebird.identify({hash: null, identify: json.properties})
 
 window.customElements.define(
     'capacitor-welcome-titlebar',

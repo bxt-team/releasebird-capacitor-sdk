@@ -11,7 +11,8 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "initialize", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "showWidget", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "showWidget", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "identify", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = ReleasebirdCapacitor()
 
@@ -58,9 +59,9 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
     }
     
     @objc func identify(_ call: CAPPluginCall) {
-        guard let identifyJson = call.getObject("identifyJson") else {
-            print("identifyJson is nil")
-            call.reject("identifyJson is missing")
+        guard let identifyJson = call.getObject("identify") else {
+            print("identify is nil")
+            call.reject("identify is missing")
             return
         }
         guard let dictionary = convertJSObjectToNSDictionary(jsObject: identifyJson) else {
@@ -68,6 +69,8 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
             call.reject("Failed to convert JSObject to NSDictionary")
             return
         }
+         print("call identify with");
+         print(dictionary);
         implementation.identify(dictionary)
         call.resolve()
     }

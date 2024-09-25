@@ -19,7 +19,6 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
   }
 
   async initialize(options: { apiKey: string, showButton: boolean } ): Promise<void> {
-    console.log('ECHO', options.showButton);
     if (options.showButton != null) {
       Rbird.initialize(options.apiKey, options.showButton);
     } else {
@@ -27,8 +26,8 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
     }
   }
 
-  async identify(options: {identify: any, hash: string}): Promise<void> {
-    Rbird.identify(options.identify, options.hash);
+  async identify(options: {hash: string, identify: any}): Promise<void> {
+    Rbird.identify(options.hash, options.identify);
   }
 
 }
