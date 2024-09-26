@@ -24,7 +24,7 @@ public class Releasebird {
         com.releasebird.releasebird_sdk.Releasebird.getInstance().logout(application);
     }
 
-    public void identify(String hash, Map<String, Object> identifyJson) {
+    public void identify(Map<String, Object> identifyJson, String hash) {
         com.releasebird.releasebird_sdk.Releasebird.getInstance().identify(hash, identifyJson);
     }
 

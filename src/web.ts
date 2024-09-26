@@ -10,7 +10,7 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
   }
 
   async logout(): Promise<void> {
-    // Rbird.logout();
+    Rbird.logout();
   }
 
   async showButton(options: { showButton: boolean } ): Promise<void> {
@@ -30,8 +30,10 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
     }
   }
 
-  async identify(options: {hash: string, identify: any}): Promise<void> {
-    Rbird.identify(options.hash, options.identify);
+  async identify(options: {identify: any, hash: string}): Promise<void> {
+    console.log('identify');
+    console.log(options.identify);
+    Rbird.identify(options.identify, options.hash);
   }
 
 }

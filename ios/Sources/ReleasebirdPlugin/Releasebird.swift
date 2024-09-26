@@ -19,13 +19,8 @@ import Releasebird
             Releasebird.sharedInstance().logout();
     }
     
-    @objc public func identify(_ identifyJson: NSDictionary) -> Void {
-        if let properties = identifyJson["properties"] as? NSDictionary {
-                // Übergibt nur das `properties`-Property an die identify-Methode von Releasebird
-                Releasebird.sharedInstance().identify(properties)
-            } else {
-                // Fallback, falls `properties` nicht im `identifyJson` vorhanden ist
-                print("Error: 'properties' not found in identifyJson")
-            }
+    @objc public func identify(_ identifyJson: NSDictionary, andHash: String) -> Void {
+        print(identifyJson);
+       Releasebird.sharedInstance().identify(identifyJson, hash: andHash);
     }
 }

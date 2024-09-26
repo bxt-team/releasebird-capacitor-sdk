@@ -108,15 +108,13 @@ window.customElements.define(
 Releasebird.initialize({ apiKey: "1cad2c1b6d7842fd937469ce3ac42ba2", showButton: true });
 
 const json = {
-    properties: {
-        firstname: "Christian",
-        lastname: "Zillmann",
-        email: "christian.zillmann@buildnext.io",
-        external_user_id: "65686f74b7d0b27e904d2ba6",
-        company: {
-            externalId: "65686f74b7d0b27e904d2ba7",
-            company_name: "buildnext"
-        }
+    firstname: "Christian",
+    lastname: "Zillmann",
+    email: "christian.zillmann@buildnext.io",
+    external_user_id: "65686f74b7d0b27e904d2ba6",
+    company: {
+        externalId: "65686f74b7d0b27e904d2ba7",
+        company_name: "buildnext"
     }
 };
 

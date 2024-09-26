@@ -78,7 +78,8 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
             call.reject("Failed to convert JSObject to NSDictionary")
             return
         }
-        implementation.identify(dictionary)
+        let hash = call.getString("hash") ?? ""
+        implementation.identify(dictionary, andHash: hash)
         call.resolve()
     }
 

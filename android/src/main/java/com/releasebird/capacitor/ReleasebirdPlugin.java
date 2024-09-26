@@ -52,17 +52,14 @@ public class ReleasebirdPlugin extends Plugin {
 
     @PluginMethod
     public void identify(PluginCall call) {
-        try {
             String hash = call.getString("hash");
 
             JSObject identifyJson = call.getObject("identify");
 
             HashMap<String, Object> hashMap = new HashMap<>();
 
-            JSONObject properties = identifyJson.getJSONObject("properties");
-
             // Get the iterator from the keys
-            Iterator<String> keysIterator = properties.keys();
+            Iterator<String> keysIterator = identifyJson.keys();
 
             // Convert Iterator to a Set to use foreach loop
             Set<String> keysSet = new HashSet<>();
@@ -73,18 +70,14 @@ public class ReleasebirdPlugin extends Plugin {
             // Iterate through the keys using foreach
             for (String key : keysSet) {
                 try {
-                    Object value = properties.get(key);
+                    Object value = identifyJson.get(key);
                     hashMap.put(key, value);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-            implementation.identify(hash, hashMap);
+            implementation.identify(hashMap, hash);
             call.resolve();
-        } catch (JSONException e) {
-            call.reject("json problem");
-        }
-
 
     }
 }

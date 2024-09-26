@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", branch: "main"),
-        .package(url: "https://github.com/bxt-team/releasebird-ios-sdk.git", .upToNextMajor(from: "1.0.16")),
+        .package(url: "https://github.com/bxt-team/releasebird-ios-sdk.git", .upToNextMajor(from: "1.0.22")),
     ],
     targets: [
         .target(
