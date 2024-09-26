@@ -20,6 +20,10 @@ public class Releasebird {
         com.releasebird.releasebird_sdk.Releasebird.getInstance().showWidget();
     }
 
+    public void logout(Application application) {
+        com.releasebird.releasebird_sdk.Releasebird.getInstance().logout(application);
+    }
+
     public void identify(String hash, Map<String, Object> identifyJson) {
         com.releasebird.releasebird_sdk.Releasebird.getInstance().identify(hash, identifyJson);
     }

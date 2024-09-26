@@ -12,7 +12,8 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
         CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "initialize", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "showWidget", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "identify", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "identify", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "logout", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = ReleasebirdCapacitor()
 
@@ -42,6 +43,16 @@ public class ReleasebirdPlugin: CAPPlugin, CAPBridgedPlugin {
 
     }
     call.resolve()
+    }
+
+    @objc func logout(_ call: CAPPluginCall) {
+        DispatchQueue.global(qos: .userInitiated).async {
+         DispatchQueue.main.async { [self] in
+            implementation.logout()
+            }
+
+        }
+        call.resolve()
     }
     
     func convertJSObjectToNSDictionary(jsObject: JSObject?) -> NSDictionary? {

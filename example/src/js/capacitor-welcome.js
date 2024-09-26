@@ -81,6 +81,7 @@ window.customElements.define(
         </p>
         <p>
           <button class="button" id="take-photo">Show Widget</button>
+          <button class="button" id="logout">Logout</button>
         </p>
         <p>
           <img id="image" style="max-width: 100%">
@@ -95,6 +96,10 @@ window.customElements.define(
 
             self.shadowRoot.querySelector('#take-photo').addEventListener('click', async function (e) {
                 Releasebird.showWidget();
+            });
+
+            self.shadowRoot.querySelector('#logout').addEventListener('click', async function (e) {
+                Releasebird.logout();
             });
         }
     },

@@ -19,6 +19,7 @@ npx cap sync
 * [`showButton(...)`](#showbutton)
 * [`identify(...)`](#identify)
 * [`showWidget()`](#showwidget)
+* [`logout()`](#logout)
 
 </docgen-index>
 
@@ -96,6 +97,15 @@ identify(options: { hash: string; identify: any; }) => Promise<void>
 
 ```typescript
 showWidget() => Promise<void>
+```
+
+--------------------
+
+
+### logout()
+
+```typescript
+logout() => Promise<void>
 ```
 
 --------------------

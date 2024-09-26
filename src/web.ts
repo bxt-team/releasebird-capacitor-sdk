@@ -9,6 +9,10 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
     Rbird.showWidget();
   }
 
+  async logout(): Promise<void> {
+    // Rbird.logout();
+  }
+
   async showButton(options: { showButton: boolean } ): Promise<void> {
     Rbird.showButton(options.showButton);
   }
@@ -31,3 +35,4 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
   }
 
 }
+

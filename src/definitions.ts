@@ -5,4 +5,5 @@ export interface ReleasebirdPlugin {
   showButton(options: { showButton: boolean }): Promise<void>;
   identify(options: {hash: string, identify: any }): Promise<void>;
   showWidget(): Promise<void>;
+  logout(): Promise<void>;
 }

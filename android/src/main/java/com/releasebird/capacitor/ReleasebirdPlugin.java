@@ -45,6 +45,12 @@ public class ReleasebirdPlugin extends Plugin {
     }
 
     @PluginMethod
+    public void logout(PluginCall call) {
+        implementation.logout(getActivity().getApplication());
+        call.resolve();
+    }
+
+    @PluginMethod
     public void identify(PluginCall call) {
         try {
             String hash = call.getString("hash");

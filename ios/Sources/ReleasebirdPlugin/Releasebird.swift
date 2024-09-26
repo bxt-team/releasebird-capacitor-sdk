@@ -14,6 +14,10 @@ import Releasebird
     @objc public func showWidget() {
         Releasebird.sharedInstance().showWidget();
     }
+
+    @objc public func logout() {
+            Releasebird.sharedInstance().logout();
+    }
     
     @objc public func identify(_ identifyJson: NSDictionary) -> Void {
         if let properties = identifyJson["properties"] as? NSDictionary {
