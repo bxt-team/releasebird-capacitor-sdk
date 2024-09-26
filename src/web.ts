@@ -31,8 +31,6 @@ export class ReleasebirdWeb extends WebPlugin implements ReleasebirdPlugin {
   }
 
   async identify(options: {identify: any, hash: string}): Promise<void> {
-    console.log('identify');
-    console.log(options.identify);
     Rbird.identify(options.identify, options.hash);
   }
 
